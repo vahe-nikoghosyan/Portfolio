@@ -1,0 +1,262 @@
+.menu {
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  @import url(https://fonts.googleapis.com/css?family=Ubuntu:300);
+
+  .desctop-menu {
+    padding: 15px 0 0 0;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1b1a1a;
+    -webkit-box-shadow: 0px 0px 27px -6px rgba(255, 255, 255, 1);
+    -moz-box-shadow: 0px 0px 27px -6px rgba(255, 255, 255, 1);
+    box-shadow: 0px 0px 27px -6px rgba(255, 255, 255, 1);
+
+    .i-am {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #0c0b0b;
+      width: 100%;
+      padding: 15px 5px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      .my-photo {
+        width: 88px;
+        height: 88px;
+        overflow: hidden;
+        -webkit-box-shadow: 0px 0px 32px -6px rgba(255, 255, 255, 1);
+        -moz-box-shadow: 0px 0px 32px -6px rgba(255, 255, 255, 1);
+        box-shadow: 0px 0px 32px -6px rgba(255, 255, 255, 1);
+
+        border-radius: 20px;
+        margin-bottom: 20px;
+        border: 2px solid white;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .name {
+        font-size: 30px;
+        text-shadow: 3px 5px 19px rgba(255, 255, 255, 0.97);
+      }
+
+      /*
+         * Animation module with all animation code
+         */
+      .anim-text-flow,
+      .anim-text-flow-hover:hover {
+        /*
+           * Animation variables
+           */
+        $animationSteps: 20;
+        $animationDuration: 30;
+        $animationElement: span;
+        $animationElementsCount: 100;
+        $delayBetweenLetters: 0.2;
+
+        /*
+           * Elements settings
+           */
+        #{$animationElement} {
+          animation-name: anim-text-flow-keys;
+          animation-duration: #{$animationDuration}s;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+          animation-fill-mode: forwards;
+        }
+
+        /*
+           * Keyframe loop
+           */
+        @keyframes anim-text-flow-keys {
+          @for $i from 0 through $animationSteps {
+            #{percentage($i * (1 / $animationSteps))} {
+              color: hsla(random(365), 60, 60, 1);
+            }
+          }
+        }
+
+        /*
+           * Element animation delay loop
+           */
+        $totalDelayTime: $animationElementsCount * $delayBetweenLetters;
+
+        @for $i from 1 through $animationElementsCount {
+          #{$animationElement}:nth-of-type(#{$i}) {
+            animation-delay: #{($i * $delayBetweenLetters) - $totalDelayTime}s;
+          }
+        }
+      }
+
+      .container-txt {
+        width: 100%;
+        .txt {
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+            "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+            "Helvetica Neue", sans-serif !important;
+        }
+      }
+    }
+
+    ul,
+    li {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      box-sizing: border-box;
+      margin: 33px 0;
+      width: 100%;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      li:last-child {
+        border-bottom: 1px solid gray;
+      }
+    }
+
+    li {
+      width: 100%;
+      list-style: none;
+      padding: 10px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+
+      border-top: 1px solid gray;
+      width: 100%;
+
+      a {
+        color: white;
+        text-decoration: none;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+          "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif !important;
+      }
+    }
+  }
+  // mobile **********************************
+  .mobile-menu {
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 300px;
+      z-index: 1;
+    }
+
+    * {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      outline: none;
+    }
+
+    .mobile-social {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 300px;
+      background: #fff;
+    }
+
+    button {
+      outline: none;
+      border: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      cursor: pointer;
+      position: absolute;
+      top: 18px;
+      left: 15px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: transparent;
+    }
+
+    ul,
+    li {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul {
+      padding: 25px;
+      position: absolute;
+      top: 100px;
+      width: 100%;
+
+      li:last-child {
+        cursor: default;
+      }
+    }
+
+    li {
+      list-style: none;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .icon-placeholder {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      flex: 40px 0;
+      margin-right: 20px;
+    }
+
+    .text-placeholder {
+      border-radius: 5px;
+      width: 200px;
+      height: 20px;
+      flex: 1;
+    }
+
+    .refresh {
+      padding: 10px;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 10px;
+      width: 20px;
+      height: 20px;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}
