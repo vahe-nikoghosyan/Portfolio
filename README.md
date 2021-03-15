@@ -8,9 +8,9 @@
 
 | Environment   | Url                        |
 | ------------- | -------------------------- |
-| [production]  | https://api.domain.com/api |
-| [development] | https://api.domain.com/api |
-| [local]       | http://localhost:8080/api  |
+| [production]  | https://domain.com/ |
+| [development] | https://domain.com/ |
+| [local]       | http://localhost:3000/  |
 
 ## Versions
 
